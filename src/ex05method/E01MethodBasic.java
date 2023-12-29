@@ -9,8 +9,8 @@ import java.util.Scanner;
 -메서드 호출 후 반환값은 호출한 위치로 반환된다. 이때 메서드는 메모리에서 소멸된다.
 -반환값이 없는 void형 메서드도 실행이 안료되면 호출한 위치로 실행의 흐름이 돌아온다.
  */
-public class E01MethodBasic {
-	
+public class E01MethodBasic  {
+	/* github 연동 완료 */
 	/*
 	메서드1 : 반환값O, 매개변수O 형태
 	=> 매개변수로 2개의 정수를 전달받아 함의 결과를 반환한다.
