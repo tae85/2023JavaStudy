@@ -20,6 +20,10 @@ class Account {
 	//잔고의 경우 입출금을 위한 연산이 필요하므로 int로 선언한다.
 	int balance;
 	
+	public Account() {
+		
+	}
+	
 	//멤버메서드
 	void deposit(int money) {
 		balance += money;
