@@ -8,13 +8,19 @@ public class QuValidateId {
 
 		System.out.print("ID를 입력해주세요.");
 		Scanner scanner = new Scanner(System.in);
-		String id = scanner.nextLine();
-		boolean bool = false;
+		String inputId = scanner.nextLine();
+		boolean bool = idValidate(inputId);		
 		
-		if(id.length() >=8 && id.length() <= 12) {
+		System.out.print(bool ? "사용할 수 있는 아이디입니다." : "사용할 수 없습니다.");
+		
+	}
+	
+	static boolean idValidate(String inputId) {
+		boolean bool = false;
+		if(inputId.length() >=8 && inputId.length() <= 12) {
 			char idCheck ;
-			for(int i = 1; i < id.length(); i++) {
-				idCheck = id.charAt(i);
+			for(int i = 1; i < inputId.length(); i++) {
+				idCheck = inputId.charAt(i);
 				if((idCheck >= '0' && idCheck <= '9') ||
 						(idCheck >= 'a' && idCheck <= 'z')) {
 					bool = true;
@@ -26,8 +32,7 @@ public class QuValidateId {
 		} else {
 			bool = false;
 		}
-		System.out.print(bool ? "사용할 수 있는 아이디입니다." : "사용할 수 없습니다.");
-		
+		return bool;
 	}
 
 }
