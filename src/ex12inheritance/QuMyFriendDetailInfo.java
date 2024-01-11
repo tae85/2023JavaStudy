@@ -36,9 +36,8 @@ class MyFriendDetailInfo extends MyFriendInfo {
 public class QuMyFriendDetailInfo {
 
 	public static void main(String[] args) {
-		
-		MyFriendDetailInfo info = new MyFriendDetailInfo("이순신", 100, "성균관", "010-1000-8888");
+		MyFriendDetailInfo info = 
+				new MyFriendDetailInfo("이순신", 100, "성균관", "010-1000-8888");
 		info.showMyFriendDetailInfo();
 	}
-
 }

@@ -2,7 +2,6 @@ package ex12inheritance;
 
 class Point {
 	int xDot, yDot;
-	int zDot;
 	
 	public Point(int x, int y) {
 		xDot = x;
@@ -29,7 +28,6 @@ class Circle {
 		System.out.println("반지름:" + radian);
 		center.showPointInfo();
 	}
-	
 }
 
 //원 2개를 겹쳐서 링을 표현하는 클래스
@@ -37,9 +35,9 @@ class Ring {
 	// 멤버변수
 	Circle innerCircle;// 안쪽의 원
 	Circle outerCircle;// 바깥쪽의 원
-	public Ring(int a, int b, int c, int d, int e, int f) {
-		innerCircle = new Circle(a, b, c);
-		outerCircle = new Circle(d, e, f);
+	public Ring(int inX, int inY, int inRad, int outX, int outY, int outRad) {
+		innerCircle = new Circle(inX, inY, inRad);
+		outerCircle = new Circle(outX, outY, outRad);
 	}
 	
 	public void showRingInfo() {
@@ -57,5 +55,4 @@ public class QuRingMake {
 		Ring c = new Ring(1, 1, 3, 2, 2, 9);
 		c.showRingInfo();
 	}
-
 }
