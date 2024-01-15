@@ -36,7 +36,6 @@ class HamburgerPrice {
 	Burger burger;
 	final int COKE = 1000;
 	final int POTATO = 1500;
-	int total;
 	
 	// 인자생성자
 	public HamburgerPrice(Burger burger) {
