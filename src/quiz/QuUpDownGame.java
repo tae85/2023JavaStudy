@@ -10,7 +10,7 @@ public class QuUpDownGame {
 		Random random = new Random();
 		int gamer;
 		int com;
-		int gameCnt = 0;
+		int gameCnt = 1;
 		int gameContinue;
 		boolean play = true;
 		boolean success = true;
@@ -25,12 +25,15 @@ public class QuUpDownGame {
 					if(gamer > 100) {
 						System.out.println("100이하의 숫자를 입력해주세요.");
 					}
+					else if(gameCnt == 7) {
+						break;
+					}
 					else {
 						gameCnt++;
 						if(gamer == com) {
 							System.out.println("성공");
 							success = false;
-							gameCnt = 7;
+							gameCnt = 8;
 							break;
 						}
 						else if(gamer > com) {
@@ -42,7 +45,7 @@ public class QuUpDownGame {
 					}
 				}
 			}
-			else {
+			else if (gameCnt == 7){
 				System.out.println("실패하셨습니다.");
 				System.out.println("게임을 계속하시겠습니까? 재시작(1), 종료(0)");
 				gameContinue = sc.nextInt();
@@ -53,14 +56,57 @@ public class QuUpDownGame {
 				}
 				else if(gameContinue == 1) {
 					gameCnt = 0;
-//					play = true;
+					success = true;
 					continue;
 				}
 				else {
-					System.out.println("잘못입력하셨습니다. 재시작(1), 종료(0)중에 입력하세요");
-					continue;
+					while(true) {
+						System.out.println("잘못입력하셨습니다. 재시작(1), 종료(0)중에 입력하세요");
+						gameContinue = sc.nextInt();
+						if(gameContinue == 1) {
+							gameCnt = 1;
+							break;
+						}
+						else if(gameContinue == 0) {
+							System.out.println("게임종료!");
+							play = false;
+							break;
+						}
+						continue;
+					}
+
 				}
 
+			}
+			else {
+				System.out.println("게임을 계속하시겠습니까? 재시작(1), 종료(0)");
+				gameContinue = sc.nextInt();
+				if(gameContinue == 0) {
+					System.out.println("게임종료!");
+					play = false;
+					break;
+				}
+				else if(gameContinue == 1) {
+					gameCnt = 0;
+					success = true;
+					continue;
+				}
+				else {
+					while(true) {
+						System.out.println("잘못입력하셨습니다. 재시작(1), 종료(0)중에 입력하세요");
+						gameContinue = sc.nextInt();
+						if(gameContinue == 1) {
+							gameCnt = 1;
+							break;
+						}
+						else if(gameContinue == 0) {
+							System.out.println("게임종료!");
+							play = false;
+							break;
+						}
+						continue;
+					}
+				}
 			}
 		}
 	}
