@@ -22,7 +22,7 @@ public class QuRockPaperScissors {
 				System.out.print("무엇을 내겠습니까?(1:가위, 2:바위, 3:보) : ");
 				com = random.nextInt(3) + 1;
 				gamer = sc.nextInt();
-				if(gamer < 4) {
+				if(gamer < 4 && gamer > 0) {
 					gameCnt++;
 					System.out.println("사용자 : " + rps(gamer) + ", 컴퓨터 : " + rps(com));
 					int result = gamer - com;

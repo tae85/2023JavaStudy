@@ -231,6 +231,7 @@ class FriendInfoHandler {
 //				break;
 //			}
 //		}
+//	
 //		if(deleteIndex == -1) {
 //			System.out.println("==삭제된 데이터가 업습니다.==");
 //		} else {
@@ -250,24 +251,26 @@ class FriendInfoHandler {
 		String searchName = scan.nextLine();
 		
 		// 일반 for문
-//		for(int i = 0; i < lists.size(); i++) {
-//			if(searchName.compareTo(lists.get(i).name) == 0) {
-//				System.out.println("**귀하가 요청하는 정보를 찾았습니다.**");				
-//				lists.get(i).showAllData();
-//				isFind = true;
-//				break;
-//			}
-//		}
-		
-		// 확장 for문
-		for(Friend fr : lists) {
-			if(searchName.equals(fr.name)) {
+		for(int i = 0; i < lists.size(); i++) {
+			/* equals()는 Object에서 제공 따라서 문자열, Object 모두 비교 가능.
+			compareTo()는 String에서 제공 따라서 문자열만 비교 가능. Object비교 안됨. */
+			if(searchName.compareTo(lists.get(i).name) == 0) {
 				System.out.println("**귀하가 요청하는 정보를 찾았습니다.**");				
-				fr.showAllData();
+				lists.get(i).showAllData();
 				isFind = true;
 				break;
 			}
 		}
+		
+		// 확장 for문
+//		for(Friend fr : lists) {
+//			if(searchName.equals(fr.name)) {
+//				System.out.println("**귀하가 요청하는 정보를 찾았습니다.**");				
+//				fr.showAllData();
+//				isFind = true;
+//				break;
+//			}
+//		}
 		
 		if(isFind == false)
 			System.out.println("***찾는 정보가 없습니다.***");
@@ -281,16 +284,23 @@ class FriendInfoHandler {
 		// 인덱스는 음수가 없으므로 초기값은 -1로 지정한다.
 		int deleteIndex = -1;
 		
+		/*
+		List컬렉션에 저장된 인스턴스를 기반으로 Iterator인스턴스를 생성한다. 이때 타입매개변수는
+		List와 동일하게 정의하면 된다.
+		 */
 		Iterator<Friend> itr = lists.iterator();
-//		while(itr.hasNext()) {
-//			Friend fr = itr.next();
-//			if(deleteName.compareTo(fr.name) == 0) {
-//				lists.remove(fr);
-//				deleteIndex = 1;
-//				break;
-//			}
-//		}
+		// 저장된 인스턴스의 개수(컬렉션의 크기)만큼 반복한다.
+		while(itr.hasNext()) {
+			// 컬렉션에 저장된 참조값을 순서대로 인출한다.
+			Friend fr = itr.next();
+			if(deleteName.compareTo(fr.name) == 0) {
+				lists.remove(fr);
+				deleteIndex = 1;
+				break;
+			}
+		}
 		
+		// 일반 for문
 //		for(int i = 0; i < lists.size(); i++) {
 //			if(deleteName.compareTo(lists.get(i).name) == 0) {
 //				lists.remove(i);
