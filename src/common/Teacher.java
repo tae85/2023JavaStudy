@@ -36,11 +36,11 @@ public class Teacher extends Person{
 		방법2 : Objects 클래스의 정적메서드인 hash()를 사용할 수 있다. 멤버변수의 개수만큼 인수로
 			전달하면 방법1과 동일하게 고유한 참조값을 정수형으로 반환해준다.
 		 */
-		int reutrnCode2 = Objects.hash(super.getAge(), this.subject);
+		int returnCode2 = Objects.hash(super.getAge(), this.subject);
 		
-		System.out.println("hashCode() 호출됨");
+		System.out.println("hashCode() 호출됨" + returnCode2);
 		// 위 2개의 값 중 하나를 반환하면 된다.
-		return reutrnCode2;
+		return returnCode2;
 	}
 	
 	/*
