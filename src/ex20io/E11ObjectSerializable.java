@@ -46,7 +46,9 @@ public class E11ObjectSerializable {
 			out.writeObject(new Circle(1, 1, 2.4));
 			out.writeObject(new Circle(2, 2, 4.8));
 			// Java에서 제공하는 기본클래스는 별도의 처리없이 직렬화한다.
-			out.writeObject(new String("String타입의 오브젝트"));
+			out.writeObject(new String("String타입의 오브젝트1"));
+			out.writeObject(new String("String타입의 오브젝트2"));
+			out.writeObject(new String("sadfasf"));
 			// 스트림 소멸
 			out.close();
 			
@@ -61,7 +63,9 @@ public class E11ObjectSerializable {
 			 */
 			Circle c1 = (Circle)in.readObject();
 			Circle c2 = (Circle)in.readObject();
-			String message = (String)in.readObject();
+			String message1 = (String)in.readObject();
+			String message2 = (String)in.readObject();
+			String msg = (String)in.readObject();
 			in.close();
 			
 			/*
@@ -73,7 +77,9 @@ public class E11ObjectSerializable {
 			/*
 			기본클래스는 이미 toString()이 오버라이딩 되어있으므로 인스턴스만으로 내용을 출력할 수 있다.
 			 */
-			System.out.println("String오브젝트:" + message);
+			System.out.println("String오브젝트:" + message1);
+			System.out.println("String오브젝트:" + message2);
+			System.out.println("String오브젝트:" + msg);
 		}
 		catch(ClassNotFoundException e) {
 			System.out.println("클래스 없음");
